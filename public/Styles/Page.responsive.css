@@ -1,0 +1,531 @@
+@import url("Fonts.css");
+@import url("/node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+:root {
+  --nav-h: 56px;
+} /* respaldo; JS lo actualiza */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding-top: var(--nav-h);
+} /* reservamos el alto del nav */
+
+/* Navbar fijo y opaco */
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-h);
+  background-color: gainsboro;
+  font-weight: 700;
+  font-family: "LeagueSpartan-Bold";
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+/* Ancla fantasma: corrige el salto de #id bajo el nav */
+.anchor {
+  position: relative;
+  top: calc(-1 * var(--nav-h) - 1px); /* -1px: redondeo Edge */
+  height: 0;
+}
+
+@supports (height: 100svh) {
+  section {
+    min-height: calc(100svh - var(--nav-h));
+  }
+}
+@supports (height: 100dvh) {
+  section {
+    min-height: calc(100dvh - var(--nav-h));
+  }
+}
+
+/* Estética */
+section {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* por las dudas */
+  min-height: calc(100vh - var(--nav-h));
+}
+/* tus imágenes */
+section:nth-of-type(1) {
+  background-image: url("../Imagenes/Seccion2Fondo2.png");
+}
+section:nth-of-type(2) {
+  background-image: url("../Imagenes/Seccion3Fondo6.png");
+}
+section:nth-of-type(3) {
+  background-image: url("../Imagenes/Seccion4Fondo2.jpg");
+}
+section:nth-of-type(4) {
+  background-image: url("../Imagenes/Seccion5Fondo.jpg");
+}
+section:nth-of-type(5) {
+  background-image: url("../Imagenes/SeccionNoticiasFondo.png");
+}
+section:nth-of-type(6) {
+  background-image: url("../Imagenes/Seccion5Fondo.jpg");
+}
+
+/* Logo */
+#logoSF {
+  max-width: 120px;
+  width: 30%;
+  min-width: 90px;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+#logoMQI {
+  max-width: 350px;
+  min-width: 90px;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Texto especial */
+
+.h1Sf {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: 38pt;
+  color: #112347;
+  margin-bottom: 0;
+  line-height: 1.5em;
+}
+.p1nosotros {
+  font-family: "League Spartan", sans-serif;
+  font-size: 21pt;
+  color: #112347;
+}
+.p2nosotros {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; /* negrita */
+  font-size: 16px;
+  color: #324772;
+}
+.p3nosotros {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-size: 16pt;
+  color: #1e1e1e;
+}
+.textoBotonWhatsapp {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; /* negrita */
+  font-size: 17pt;
+  color: #ffffff;
+}
+/* Botón WhatsApp */
+.btn-success {
+  background-color: #25d366;
+  border: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-success:hover {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+}
+.img-filosofia {
+  display: block;
+  max-width: 90%;
+  padding: 10px;
+  height: auto;
+  max-height: 90%;
+  margin: 0;
+}
+.h1filosofia {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+.pFilosofia {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: justify;
+}
+.pFilosofiabold {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.pFilosofiaFinal {
+  font-family: "Inter-Regular";
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+.h1teoria {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+.p1Teoria {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.img-Teoria {
+  width: 55%;
+  margin: 0 auto;
+  height: auto;
+  display: block; /* centrarar sin deformar */
+}
+.imgMas {
+  width: 400px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
+}
+.imgMasGracias {
+  width: 200px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
+}
+.imgMQIGracias {
+  width: 300px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
+}
+
+.texto-porque {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1a7d74;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.h3-porque {
+  font-family: "Inter-Regular";
+  font-size: 18pt;
+  color: #1a7d74;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+/* Negritas dentro del texto */
+.titulo-porque {
+  font-family: "League Spartan";
+  font-size: 26pt;
+  color: #1a7d74;
+  padding-top: 10px;
+}
+.imgSeccion5Icono {
+  width: 100%;
+  height: 100%;
+  padding: 2px; /* mantiene proporciones */
+  display: block; /* centrarar sin deformar */
+}
+.img-porque {
+  display: block;
+  max-width: 80%;
+  padding: 5px;
+  height: auto;
+  max-height: 70%;
+  margin: 10;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  padding: 2px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #0080a8;
+  font-weight: bold;
+}
+.h1Noticias {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+.h1Contacto {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+
+.service-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-img {
+  width: 100%;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.service-text {
+  padding: 1rem;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+.service-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2d4d73;
+  margin-bottom: 0.5rem;
+}
+.modal-dialog.modal-proporcional {
+  width: 80vw;                 /* base responsive */
+  max-width: 800px;            /* límite superior */
+  aspect-ratio: 4 / 3;         /* proporción: 4 de ancho x 3 de alto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  height: auto;              /* quita height:100% si lo tenías */
+  border-radius: 16px;
+  display: block;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto; /* scroll si el texto supera el área */
+  padding: 1rem;
+}
+.modal.show .modal-dialog.modal-proporcional {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+
+.review-card
+{
+  font-family: "League Spartan";
+  font-size: 10pt;
+  color: #1a7d74;
+  background-color: whitesmoke;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.review-card:hover
+{
+  transform:translateY(-10px)
+}
+.review-text {
+  margin-bottom: 0;          /* mb-0 */
+  margin-top: .5rem;         /* mt-2 (≈ 0.5rem en Bootstrap) */
+  color: #112347; /* text-secondary en BS 5.3+ */
+}
+.h1Comentarios {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+@media (max-width: 600px) {
+  .navbar {
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    background-color: #f2f2f2;
+  }
+  section.nosotros {
+    padding-top: calc(var(--nav-h) -200px);
+  }
+  #logoSF {
+    width: 60%;
+    max-width: 160px;
+  }
+  #logoMQI {
+    max-width: 250px;
+  }
+  .h1Sf {
+    font-size: 28pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 17pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 10pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 12pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 13pt;
+    color: #ffffff;
+  }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  section:nth-of-type(1) {
+    background-image: url("../Imagenes/Seccion2FondoRes.png");
+  }
+  section:nth-of-type(2) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(3) {
+    background-image: url("../Imagenes/Seccion2FondoCelular2.png");
+  }
+  section:nth-of-type(4) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(5) {
+    background-image: url("../Imagenes/Seccion2FondoCelular4.png");
+  }
+  section:nth-of-type(6) {
+    background-image: url("../Imagenes/Seccion2FondoCelular5.png");
+  }
+  .img-filosofia {
+    display: block;
+    max-width: 50%;
+    padding: 10px;
+    height: auto;
+    max-height: 50%;
+    margin: 0;
+  }
+}
+
+/* Tablets (pantallas medianas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    font-size: 14px;
+    height: 60px;
+    background-color: #e0e0e0;
+  }
+
+  #logoSF {
+    width: 45%;
+    max-width: 180px;
+  }
+  #logoMQI {
+    max-width: 260px;
+  }
+  .h1Sf {
+    font-size: 32pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 13pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 15pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 16pt;
+    color: #ffffff;
+  }
+
+  section:nth-of-type(2) {
+    background-image: url("../Imagenes/Seccion2FondoCelular.png");
+  }
+  section:nth-of-type(3) {
+    background-image: url("../Imagenes/Seccion2FondoCelular2.png");
+  }
+  section:nth-of-type(4) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(5) {
+    background-image: url("../Imagenes/Seccion2FondoCelular4.png");
+  }
+  section:nth-of-type(6) {
+    background-image: url("../Imagenes/Seccion2FondoCelular5.png");
+  }
+}
+
+/* Escritorio (pantallas grandes) */
+@media (min-width: 1025px) {
+  .navbar {
+    font-size: 18px;
+    height: 70px;
+    background-color: gainsboro;
+  }
+
+  #logoSF {
+    max-width: 140px;
+  }
+  #logoMQI {
+    max-width: 360px;
+  }
+  .h1Sf {
+    font-size: 38pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 21pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 14pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 16pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 17pt;
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "News": [
+    {
+      "Titulo": "Se traslada el feriado de Octubre",
+      "Foto": "/Imagenes/Noticias/Feriado.png",
+      "Link": "#",
+      "Descripcion": "Se traslada el feriado nacional del 12 de octubre Día del Respeto a la Diversidad Cultural,\nque en 2025 cae domingo al viernes 10 de octubre generando un fin de semana largo de tres días.\nEl viernes 10 será un feriado nacional obligatorio en todo el país.\nFecha: 28/08/2025\n<b>Fuente: Res.139/25.</b>",
+      "Activo": 1
+    },
+    {
+      "Titulo": "Derecho de Arrepentimiento y Baja de Servicios",
+      "Foto": "/Imagenes/Noticias/Arrepentimiento.jpg",
+      "Link": "#",
+      "Descripcion": "En las compras y servicios a distancia hay un cambio importante: ahora las páginas web tienen que ofrecer un acceso rápido y visible para que los usuarios puedan cancelar una compra o dar de baja un servicio sin trámites extra.\n\n¿Qué cambia?\n\nBotón de arrepentimiento:\nDebe estar a simple vista en la página de inicio.\nPermite cancelar la compra sin registrarse ni completar formularios.\nPlazo: 10 días corridos desde la entrega del producto o la firma del contrato.\nEl proveedor tiene 24 horas para dar un código de confirmación.\nExcepciones: entradas a espectáculos y turismo con fecha fija (requiere aviso con 24 h de anticipación), productos perecederos, bienes ya consumidos o compras con fines de reventa.\n\nBotón de baja de servicios:\nTambién debe estar destacado en la web.\nAplica a telefonía fija y móvil, internet, TV, medicina prepaga, suscripciones (diarios, revistas, gimnasios, clubes, donaciones, etc.).\nSin trámites adicionales ni registro previo.\nLa empresa debe confirmar la baja en 24 horas con un código de gestión.\n\nAtención al consumidor:\nLas empresas deben garantizar al menos 8 horas diarias de atención de lunes a viernes.\nDeben publicar teléfono o canal online de reclamos, con área responsable identificada.\nPlazo de adecuación: 60 días corridos desde la entrada en vigencia de la norma.\nSanciones: el incumplimiento se sanciona bajo la Ley 24.240 de Defensa del Consumidor.\n\n <b>Fecha: 03/09/2025</b>\n\n<b>Fuente: Disposición 954/2025</b>",
+      "Activo": 1
+    },
+    {
+      "Titulo": "Los kioscos ahora también reciben paquetes",
+      "Foto": "/Imagenes/Noticias/PuestodeDiario.jpg",
+      "Link": "#",
+      "Descripcion": "Un cambio que busca acercar los servicios al día a día: desde ahora, las paradas de diarios podrán actuar como “casillas de correo” si se registran o se asocian con un operador postal habilitado.\n¿Qué significa en la práctica?\nPodrán entregar correspondencia general.\nRecibir y entregar paquetes y compras de e-commerce.\nHacer la entrega de tarjetas de crédito y débito, DNI y pasaportes.\nLa medida ya está en vigencia y facilita que trámites y entregas estén más cerca de la gente, en un punto tan cotidiano como el kiosco de diarios.\n<b>Fecha: 03/09/2025</b>\n\n<b>Fuente: Dto.629/25</b>",
+      "Activo": 1
+    },
+    {
+      "Titulo": "Los kioscos ahora también reciben paquetes",
+      "Foto": "/Imagenes/Noticias/PuestodeDiario.jpg",
+      "Link": "#",
+      "Descripcion": "Nueva red de puntos de entrega suma kioscos como lugares de recepción.",
+      "Activo": 0
+    }
+  ]
+}

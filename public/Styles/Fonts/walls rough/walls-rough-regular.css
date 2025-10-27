@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Walls-Rough-Regular';
+	src: url('../fonts/walls-rough-regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/walls-rough-regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/walls-rough-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/walls-rough-regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/walls-rough-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/walls-rough-regular.svg#walls-rough-regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
