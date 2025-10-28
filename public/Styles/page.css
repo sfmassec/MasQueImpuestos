@@ -352,32 +352,32 @@ section:nth-of-type(8) {
 .testimonios .blockquote-footer::before {
   content: none !important;
 }
-
-.testimonios .blockquote-footer {
-  color: #6c757d;
-  font-style: italic;
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
-/* Tarjeta del testimonio */
 .testimonios .card {
-  border: 1px solid rgba(0, 0, 0, 1); /* borde sutil */
+  border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 15px;
   background-image: url(../Imagenes/Seccion7FondoTestimonios.png);
   background-size: cover;
   background-position: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* sombra clara y visible */
+  overflow: hidden; /* asegura que el contenido respete el borde redondeado */
+  transition: border-radius 0.4s ease;
+}
+
+.testimonios .card-inner {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.testimonios .card:hover .card-inner {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.85);
 }
 
 .testimonios .card:hover {
-  transform: translateY(-4px);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.45); /* sombra más marcada */
+  border-radius: 35px;
 }
+
 
 /* Texto del bloque */
 .pComentarios {
@@ -386,6 +386,7 @@ section:nth-of-type(8) {
   color: #1a7d74;
   line-height: 1.6;
   margin-bottom: 0;
+  padding: 20pt;
   font-weight: 400;
 }
 
