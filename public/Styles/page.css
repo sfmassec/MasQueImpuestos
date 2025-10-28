@@ -364,7 +364,7 @@ section:nth-of-type(8) {
   overflow: hidden; /* asegura que el contenido respete el borde redondeado */
   transition: border-radius 0.4s ease;
 }
-
+/*pr*/
 .testimonios .card-inner {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -375,7 +375,7 @@ section:nth-of-type(8) {
 }
 
 .testimonios .card:hover {
-  border-radius: 35px;
+  border-radius: 25px;
 }
 
 
