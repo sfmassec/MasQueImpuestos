@@ -1,4 +1,5 @@
 @import url("Fonts.css");
+@import url("/node_modules/@fortawesome/fontawesome-free/css/all.min.css");
 :root {
   --nav-h: 56px;
 } /* respaldo; JS lo actualiza */
@@ -17,12 +18,10 @@ body {
   height: var(--nav-h);
   background-color: gainsboro;
   font-weight: 700;
-  font-size: 15pt;
   font-family: "LeagueSpartan-Bold";
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
-
 /* Ancla fantasma: corrige el salto de #id bajo el nav */
 .anchor {
   position: relative;
@@ -30,14 +29,6 @@ body {
   height: 0;
 }
 
-/* Secciones: exactamente el viewport menos el nav */
-section {
-  /* Fallback desktop */
-  min-height: calc(100vh - var(--nav-h));
-
-  /* Viewport moderno (mejor en móviles) */
-  /* Usa 100svh (small viewport) o 100dvh si está disponible */
-}
 @supports (height: 100svh) {
   section {
     min-height: calc(100svh - var(--nav-h));
@@ -52,151 +43,95 @@ section {
 /* Estética */
 section {
   background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0; /* por las dudas */
+  min-height: calc(100vh - var(--nav-h));
 }
 /* tus imágenes */
 section:nth-of-type(1) {
   background-image: url("../Imagenes/Seccion2Fondo2.png");
 }
 section:nth-of-type(2) {
-  background-image: url("../Imagenes/Seccion3Fondo2.png");
+  background-image: url("../Imagenes/Seccion3Fondo6.png");
 }
 section:nth-of-type(3) {
-  background-image: url("../Imagenes/Seccion4Fondo.jpg");
+  background-image: url("../Imagenes/Seccion4Fondo2.jpg");
 }
 section:nth-of-type(4) {
   background-image: url("../Imagenes/Seccion5Fondo.jpg");
 }
 section:nth-of-type(5) {
-  background-image: url("../Imagenes/Seccion5Fondo.jpg");
+  background-image: url("../Imagenes/SeccionNoticiasFondo.png");
 }
 section:nth-of-type(6) {
   background-image: url("../Imagenes/Seccion5Fondo.jpg");
 }
+section:nth-of-type(8) {
+  background-image: url("../Imagenes/Seccion7FondoTestimonios.png");
+}
 
-img.imgLogo {
-  display: block;
-  margin: 35px auto;
-  width: 150px; /* más pequeño en móviles */
+/* Logo */
+#logoSF {
+  max-width: 120px;
+  width: 30%;
+  min-width: 90px;
   height: auto;
-}
-img.imgMas {
-  width: 350px;
-  display: block;
-  margin: 1px auto; /* auto centra horizontalmente */
+  transition: all 0.3s ease;
 }
 
-.img-filosofia {
-  display: block;
-  max-width: 80%;
-  padding: 5px;
+#logoMQI {
+  max-width: 350px;
+  min-width: 90px;
   height: auto;
-  max-height: 80%;
-  margin: 0;
+  transition: all 0.3s ease;
 }
 
-/*#textos*/
-/*Nosotros*/
-h1.h1sf {
-  font-family: "Lora";
-  color: #112347;
-  margin-top: 0px;
-  font-weight: 800;
-}
-p.p_imporden {
-  font-family: "LeagueSpartan-Bold";
-  text-align: left;
-  color: #112347;
-  font-weight: 600;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  font-size: 21pt;
-}
-p.p_acomp {
-  font-family: "OpenSans-Bold";
-  text-align: left;
-  color: #324772;
-  margin-bottom: 1px;
-  margin-top: 1px;
-  font-weight: 600;
-  font-size: 14pt;
-}
-p.p_empeza {
-  font-family: "OpenSans-BoldItalic";
-  text-align: left;
-  color: #1e1e1e;
-  margin-bottom: 1px;
-  margin-top: 1px;
-  font-weight: 600;
-  font-size: 16pt;
-}
-div.p_whatsapp {
-  text-align: left;
-  margin-top: 20px;
-}
-button.button_what {
-  font-family: "LeagueSpartan-Bold", Arial, sans-serif;
-  color: white;
+/* Texto especial */
+
+.h1Sf {
+  font-family: "Lora", serif;
   font-weight: 700;
-  font-size: 16px;
-  background-color: #25d366;
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  transition: background-color 0.3s ease;
-  outline: none;
-}
-
-.button_what::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.051 3.488'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-left: 8px;
-}
-
-.button_what:hover {
-  background-color: #128c7e;
-  transform: translateY(-1px);
-}
-
-.button_what:active {
-  transform: translateY(0);
-}
-
-.titulo-filosofia {
-  font-family: "League Spartan", sans-serif;
-  font-size: 28pt;
-  color: #1a7d74;
-  text-align: center;
-}
-
-/* Texto normal */
-.texto {
-  font-family: "Inter-Regular";
-  font-size: 18pt;
-  color: #1e1e1e;
-  line-height: 1.6;
+  font-size: 38pt;
+  color: #112347;
   margin-bottom: 0;
-  font-weight: 400;
+  line-height: 1.5em;
+}
+.p1nosotros {
+  font-family: "League Spartan", sans-serif;
+  font-size: 21pt;
+  color: #112347;
+}
+.p2nosotros {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; /* negrita */
+  font-size: 16px;
+  color: #324772;
+}
+.p3nosotros {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-size: 16pt;
+  color: #1e1e1e;
+}
+.textoBotonWhatsapp {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700; /* negrita */
+  font-size: 17pt;
+  color: #ffffff;
+}
+/* Botón WhatsApp */
+.btn-success {
+  background-color: #25d366;
+  border: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-/* Negritas dentro del texto */
-.texto-bold {
-  font-family: "InterDisplay-Medium";
-  font-size: 18pt;
-  color: #1e1e1e;
-  line-height: 1.6;
-  font-weight: 600;
+.btn-success:hover {
+  filter: brightness(1.05);
+  transform: scale(1.03);
 }
 .img-filosofia {
   display: block;
@@ -206,65 +141,110 @@ button.button_what {
   max-height: 90%;
   margin: 0;
 }
-footer {
-  background: #212529;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.h1filosofia {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
 }
-.img-cuadrada-teoria {
-  width: 60%;
+.pFilosofia {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: justify;
+}
+.pFilosofiabold {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.pFilosofiaFinal {
+  font-family: "Inter-Regular";
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+.h1teoria {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+.p1Teoria {
+  font-family: "Inter-Regular";
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.img-Teoria {
+  width: 55%;
   margin: 0 auto;
   height: auto;
-  padding: 1px; /* mantiene proporciones */
   display: block; /* centrarar sin deformar */
 }
-
-.titulo-teoria {
-  font-family: "League Spartan";
-  font-size: 28pt;
-  color: #1a7d74;
-  text-align: center;
+.imgMas {
+  width: 400px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
 }
+.imgMasGracias {
+  width: 200px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
+}
+.imgMQIGracias {
+  width: 300px;
+  display: block;
+  margin: 1px auto; /* auto centra horizontalmente */
+}
+
 .texto-porque {
-  font-family: "DMSans-Medium";
-  font-size: 14pt;
+  font-family: "Inter-Regular";
+  font-size: 16px;
   color: #1a7d74;
+  line-height: 1.6;
+  margin-bottom: 0;
   font-weight: 400;
 }
 .h3-porque {
-  font-family: "InterDisplay-SemiBold";
-  font-size: 15pt;
+  font-family: "Inter-Regular";
+  font-size: 18pt;
   color: #1a7d74;
-  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 /* Negritas dentro del texto */
 .titulo-porque {
   font-family: "League Spartan";
-  font-size: 24pt;
+  font-size: 26pt;
   color: #1a7d74;
-  text-align: center;
+  padding-top: 10px;
 }
 .imgSeccion5Icono {
-  width: 50%;
+  width: 100%;
   height: 100%;
-  padding: 1px; /* mantiene proporciones */
+  padding: 2px; /* mantiene proporciones */
   display: block; /* centrarar sin deformar */
 }
 .img-porque {
   display: block;
-  max-width: 70%;
-  padding: 0px;
+  max-width: 80%;
+  padding: 5px;
+  height: auto;
+  max-height: 70%;
+  margin: 10;
+}
 
-  margin: 0;
-}
-/* Texto normal */
-.texto-teoria {
-  font-family: "DMSans-Medium";
-  font-size: 20pt;
-  color: #1a7d74;
-  font-weight: 400;
-}
 .feature {
   display: grid;
   grid-template-columns: 60px 1fr 60px;
@@ -275,6 +255,7 @@ footer {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
 .icon {
   width: 100%;
   height: auto;
@@ -287,214 +268,332 @@ footer {
   color: #0080a8;
   font-weight: bold;
 }
-
-/*Nosotros*/
-/*#end textos*/
-
-/* === Overrides añadidos === */
-
-/* =========================
-   PATCH OVERRIDES (2025-10-09)
-   - Tipografías normalizadas según @font-face en Fonts.css
-   - Tamaños fluidos con clamp()
-   - Navbar elástica usando --nav-h que ya calculás en JS
-   - Grids e imágenes más dóciles en móvil
-   Estas reglas se aplican al final para no romper tu CSS original.
-   ========================= */
-
-:root {
-  --step--1: clamp(0.92rem, 0.88rem + 0.4vw, 1rem);
-  --step-0: clamp(1rem, 0.96rem + 0.5vw, 1.125rem);
-  --step-1: clamp(1.125rem, 1.05rem + 0.7vw, 1.375rem);
-  --step-2: clamp(1.35rem, 1.2rem + 1vw, 1.75rem);
-  --step-3: clamp(1.75rem, 1.5rem + 1.6vw, 2.25rem);
-  --content-max: 1200px;
-  --gutter: clamp(1rem, 2vw, 2rem);
+.h1Noticias {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+}
+.h1Contacto {
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
 }
 
-/* Familias coherentes con Fonts.css */
-body {
-  font-family: "Inter", "OpenSans", system-ui, -apple-system, "Segoe UI", Roboto,
-    Arial, sans-serif;
+.service-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Navbar: que su altura real defina --nav-h (tu JS ya la escribe) */
-.navbar {
-  height: auto;
-  min-height: var(--nav-h);
-  line-height: 1.2;
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos y párrafos fluidos */
-h1.h1sf {
-  font-family: "Lora", serif;
+.service-img {
+  width: 100%;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.service-text {
+  padding: 1rem;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+.service-title {
   font-weight: 700;
-  font-size: var(--step-3);
-  color: #112347;
-  margin: 0.25rem 0 0.5rem;
+  text-transform: uppercase;
+  color: #2d4d73;
+  margin-bottom: 0.5rem;
+}
+.modal-dialog.modal-proporcional {
+  width: 80vw; /* base responsive */
+  max-width: 800px; /* límite superior */
+  aspect-ratio: 4 / 3; /* proporción: 4 de ancho x 3 de alto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.p_imporden {
-  font-family: "LeagueSpartan", "Inter", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.1rem, 1rem + 1.2vw, 1.6rem);
-  color: #112347;
-  margin: 1.2rem 0 1.2rem 0;
-  text-align: left;
+.modal-content {
+  height: auto; /* quita height:100% si lo tenías */
+  border-radius: 16px;
+  display: block;
 }
 
-.p_acomp {
-  font-family: "OpenSans", "Inter", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: clamp(0.98rem, 0.9rem + 0.7vw, 1.25rem);
-  color: #324772;
-  margin: 0.25rem 0;
-  text-align: left;
+.modal-body {
+  flex: 1;
+  overflow-y: auto; /* scroll si el texto supera el área */
+  padding: 1rem;
+}
+.modal.show .modal-dialog.modal-proporcional {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+/* ======== SECCIÓN TESTIMONIOS ======== */
+.testimonios {
+  background-color: #dbe7f3;
+  padding-top: 1.5rem !important;
+  padding-bottom: 4rem !important;
 }
 
-.p_empeza {
-  font-family: "OpenSans", "Inter", sans-serif;
-  font-weight: 700;
+.h1Comentarios {
+  text-align: center;
+  font-family: "League Spartan";
+  font-size: 30pt;
+  color: #1a7d74;
+  margin-bottom: 5rem;
+}
+
+/* Elimina los guiones debajo del texto */
+.testimonios .blockquote-footer::before {
+  content: none !important;
+}
+
+.testimonios .blockquote-footer {
+  color: #6c757d;
   font-style: italic;
-  font-size: clamp(1rem, 0.95rem + 0.8vw, 1.3rem);
-  color: #1e1e1e;
-  margin: 0.25rem 0;
-  text-align: left;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
-/* Subtítulos y textos */
-.titulo-filosofia,
-.titulo-teoria,
-.titulo-porque {
-  font-family: "LeagueSpartan", "Inter", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.4rem, 1.2rem + 1.2vw, 2rem);
-}
-.texto,
-.texto-porque,
-.texto-teoria {
-  font-family: "Inter", "OpenSans", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 0.95rem + 0.6vw, 1.2rem);
-  line-height: 1.6;
-  color: #1e1e1e;
-}
-.texto-bold {
-  font-family: "Inter", "OpenSans", sans-serif;
-  font-weight: 600;
-  font-size: inherit;
-}
-
-/* Botón WhatsApp */
-.button_what {
-  font-family: "LeagueSpartan", "Inter", sans-serif;
-  font-weight: 700;
-}
-
-/* Navbar fija robusta */
-.navbar {
-  position: fixed;
-  inset: 0 0 auto 0;
-  background-color: gainsboro;
-  font-weight: 700;
-  font-size: 15pt;
-  font-family: "LeagueSpartan", "Inter", sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-}
-
-/* Secciones: alto mínimo respetando la nav */
-section {
-  min-height: calc(100vh - var(--nav-h));
+/* Tarjeta del testimonio */
+.testimonios .card {
+  border: 1px solid rgba(0, 0, 0, 1); /* borde sutil */
+  border-radius: 15px;
+  background-image: url(../Imagenes/Seccion7FondoTestimonios.png);
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* sombra clara y visible */
 }
-@supports (height: 100svh) {
-  section {
-    min-height: calc(100svh - var(--nav-h));
+
+.testimonios .card:hover {
+  transform: translateY(-4px);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.45); /* sombra más marcada */
+}
+
+/* Texto del bloque */
+.pComentarios {
+  font-family: "Inter-Regular";
+  font-size: 18pt;
+  color: #1a7d74;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* Flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(6, 90, 96, 0.8);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: 1.2rem 1.2rem;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(6, 90, 96, 1);
+}
+
+/* Indicadores inferiores */
+.carousel-indicators [data-bs-target] {
+  background-color: #065a60;
+}
+
+.carousel-indicators {
+  margin-top: 2rem;
+}
+
+/* Alineación general */
+.testimonios .carousel-item {
+  text-align: center;
+}
+
+/* Suaviza las transiciones */
+.carousel-inner {
+  transition: transform 0.8s ease-in-out;
+}
+@media (max-width: 600px) {
+  .navbar {
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    background-color: #f2f2f2;
   }
-}
-@supports (height: 100dvh) {
-  section {
-    min-height: calc(100dvh - var(--nav-h));
+  section.nosotros {
+    padding-top: calc(var(--nav-h) -200px);
   }
-}
-
-/* Imágenes */
-img.imgLogo {
-  width: clamp(110px, 18vw, 150px);
-  height: auto;
-  margin: 24px auto;
-  display: block;
-}
-img.imgMas {
-  width: clamp(220px, 35vw, 350px);
-  height: auto;
-  margin: 4px auto;
-  display: block;
-}
-
-.img-filosofia {
-  width: min(90%, 420px);
-  height: auto;
-  margin: 0 auto;
-  padding: 10px;
-}
-.img-porque {
-  width: min(80%, 420px);
-  height: auto;
-  margin: 0 auto;
-}
-.img-cuadrada-teoria {
-  width: min(90%, 760px);
-  height: auto;
-  padding: 1px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Feature / iconos */
-.feature {
-  display: grid;
-  grid-template-columns: 48px 1fr 48px;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  padding: 6px 8px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-.icon {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-}
-.imgSeccion5Icono {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .feature {
-    grid-template-columns: 60px 1fr 60px;
-  }
-  .imgSeccion5Icono {
+  #logoSF {
     width: 60%;
+    max-width: 160px;
+  }
+  #logoMQI {
+    max-width: 250px;
+  }
+  .h1Sf {
+    font-size: 28pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 17pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 10pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 12pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 13pt;
+    color: #ffffff;
+  }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  section:nth-of-type(1) {
+    background-image: url("../Imagenes/Seccion2FondoRes.png");
+  }
+  section:nth-of-type(2) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(3) {
+    background-image: url("../Imagenes/Seccion2FondoCelular2.png");
+  }
+  section:nth-of-type(4) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(5) {
+    background-image: url("../Imagenes/Seccion2FondoCelular4.png");
+  }
+  section:nth-of-type(6) {
+    background-image: url("../Imagenes/Seccion2FondoCelular5.png");
+  }
+  .img-filosofia {
+    display: block;
+    max-width: 50%;
+    padding: 10px;
+    height: auto;
+    max-height: 50%;
+    margin: 0;
   }
 }
 
-/* Contenedor y padding fluido (si usás .container) */
-.container {
-  width: min(100% - 2 * var(--gutter), var(--content-max));
-  margin-inline: auto;
+/* Tablets (pantallas medianas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    font-size: 14px;
+    height: 60px;
+    background-color: #e0e0e0;
+  }
+
+  #logoSF {
+    width: 45%;
+    max-width: 180px;
+  }
+  #logoMQI {
+    max-width: 260px;
+  }
+  .h1Sf {
+    font-size: 32pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 13pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 15pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 16pt;
+    color: #ffffff;
+  }
+
+  section:nth-of-type(2) {
+    background-image: url("../Imagenes/Seccion2FondoCelular.png");
+  }
+  section:nth-of-type(3) {
+    background-image: url("../Imagenes/Seccion2FondoCelular2.png");
+  }
+  section:nth-of-type(4) {
+    background-image: url("../Imagenes/Seccion2FondoCelular3.png");
+  }
+  section:nth-of-type(5) {
+    background-image: url("../Imagenes/Seccion2FondoCelular4.png");
+  }
+  section:nth-of-type(6) {
+    background-image: url("../Imagenes/Seccion2FondoCelular5.png");
+  }
+}
+
+/* Escritorio (pantallas grandes) */
+@media (min-width: 1025px) {
+  .navbar {
+    font-size: 18px;
+    height: 70px;
+    background-color: gainsboro;
+  }
+
+  #logoSF {
+    max-width: 140px;
+  }
+  #logoMQI {
+    max-width: 360px;
+  }
+  .h1Sf {
+    font-size: 38pt;
+  } /* baja un poco para que no rompa líneas */
+  .p1nosotros {
+    font-family: "League Spartan", sans-serif;
+    font-size: 21pt;
+    color: #112347;
+  }
+  .p2nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 14pt;
+    color: #324772;
+  }
+  .p3nosotros {
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 16pt;
+    color: #1e1e1e;
+  }
+  .textoBotonWhatsapp {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; /* negrita */
+    font-size: 17pt;
+    color: #ffffff;
+  }
 }
