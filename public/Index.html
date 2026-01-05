@@ -47,7 +47,7 @@
             <a class="nav-link" href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://wa.me/5491165783494" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a class="nav-link" onclick="abrirWhatsApp()" target="_blank"><i class="bi bi-whatsapp"></i></a>
           </li>
         </ul>
       </div>
@@ -726,7 +726,7 @@
     })();
     function abrirWhatsApp() {
       const telefono = "5491171538120"; // reemplazá con tu número, sin el '+'
-      const mensaje = "Hola, me gustaria obtener mas informacion sobre sus servicios";
+      const mensaje = "Hola, me gustaria obtener mas informacion sobre sus servicios.";
       const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
     }
